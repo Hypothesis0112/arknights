@@ -1,0 +1,65 @@
+/* app.wxss - 全局样式 */
+
+/* 页面基础样式 */
+page { 
+    /* 全局背景 */
+    background-image: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.nga.178.com%2Fattachments%2Fmon_201910%2F18%2F-klbw3Q5-3pfnXbZ33T1kSbb-ps.png&refer=http%3A%2F%2Fimg.nga.178.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1768573817&t=b1904a44554714cf578ae618174d0c36');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+.page-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 20rpx;
+    margin: 20rpx;
+    padding: 30rpx;
+    box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
+  }
+/* 选中页面的渐变背景 */
+.page-active {
+  background: linear-gradient(to bottom, #f0f9ff 0%, #ffffff 100%);
+}
+
+/* 卡片基础样式 */
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 123, 255, 0.08);
+}
+
+/* 标题样式 */
+.section-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #1a2b4c;
+  margin: 30rpx 20rpx 20rpx;
+  padding-left: 10rpx;
+  border-left: 6rpx solid #00c3ff;
+}
+
+/* 按钮基础样式 */
+.primary-btn {
+  background: linear-gradient(90deg, #00c3ff, #0077ff);
+  color: white;
+  border-radius: 12rpx;
+  padding: 24rpx 40rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 6rpx 20rpx rgba(0, 195, 255, 0.2);
+  transition: all 0.3s;
+}
+
+.primary-btn:active {
+  transform: translateY(2rpx);
+  box-shadow: 0 4rpx 12rpx rgba(0, 195, 255, 0.2);
+}
+
+.primary-btn:hover {
+    background-color: #0d62d9;
+}
