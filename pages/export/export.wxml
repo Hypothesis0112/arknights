@@ -1,0 +1,17 @@
+<!-- pages/export/export.wxml -->
+<view class="page-container">
+  <view class="section-title">数据导出</view>
+
+  <view class="info-box">
+    当前共记录 <text class="highlight">{{recordCount}}</text> 条抽卡数据。
+  </view>
+
+  <button class="button-primary" bindtap="exportJSON">导出为 JSON（复制到剪贴板）</button>
+
+  <button class="button-primary" style="background:#4caf50;" bindtap="exportExcel">导出为 Excel 文件</button>
+
+  <view class="tip" style="margin-top: 40rpx; color:#888; font-size:24rpx;">
+    • JSON 可用于备份或导入其他工具<br/>
+    • Excel 文件将保存至手机「文件」App（iOS）或内部存储（Android）
+  </view>
+</view>

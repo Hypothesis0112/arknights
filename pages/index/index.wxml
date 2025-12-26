@@ -1,0 +1,91 @@
+<!-- pages/index/index.wxml -->
+<view class="page-container">
+  <view class="section-title">新增抽卡记录</view>
+
+  <!-- 卡池选择 -->
+  <picker 
+    mode="selector" 
+    range="{{pools}}" 
+    range-key="name" 
+    value="{{selectedPool}}" 
+    bindchange="onPoolChange"
+  >
+    <view class="form-item">
+      <text>卡池：</text>
+      <text class="form-value">{{selectedPoolName}}</text>
+    </view>
+  </picker>
+
+  <!-- 干员名称 -->
+  <view class="form-item">
+    <text>干员名称：</text>
+    <input 
+      class="form-input" 
+      placeholder="例如：能天使、艾雅法拉" 
+      value="{{operator}}" 
+      bindinput="onOperatorInput" 
+    />
+  </view>
+
+  <!-- 星级选择 -->
+  <view class="form-item">
+    <text>星级：</text>
+    <picker 
+      mode="selector" 
+      range="{{array}}" 
+      value="{{starIndex}}" 
+      bindchange="onRarityChange"
+    >
+      <view class="form-value">{{array[starIndex]}}</view>
+    </picker>
+  </view>
+
+  <!-- 是否UP目标 -->
+  <view class="form-item">
+    <text>是否为当期UP目标？</text>
+    <checkbox-group bindchange="onIsTargetChange">
+      <label>
+        <checkbox color="#00bcd4" value="true" checked="{{isTarget}}" /> 是
+      </label>
+    </checkbox-group>
+  </view>
+
+  <!-- 抽卡时间 -->
+  <view class="form-item">
+    <text>抽卡时间：</text>
+    <picker 
+      mode="datetime" 
+      value="{{timestamp}}" 
+      bindchange="onTimeChange"
+    >
+      <view class="form-value">{{timestamp}}</view>
+    </picker>
+  </view>
+
+  <!-- 提交按钮 -->
+  <button class="primary-btn" bindtap="submitForm">保存记录</button>
+
+  <!-- 添加间隔 -->
+  <view style="height: 40rpx;"></view>
+
+  <!-- 批量导入按钮 -->
+  <view class="import-section">
+    <button 
+      class="import-btn" 
+      bindtap="openImportPage"
+    >
+      批量导入（粘贴JSON）
+    </button>
+  </view>
+
+  <!-- 添加更多间隔 -->
+  <view style="height: 20rpx;"></view>
+
+  <!-- 使用提示 -->
+  <view class="usage-tips">
+    提示：点击"批量导入"可以通过粘贴JSON格式数据一次导入多条记录
+  </view>
+
+  <!-- 示例填充（开发用） -->
+  <!-- <button style="margin-top: 20rpx; background:#e0e0e0; color:#333;" bindtap="fillExample">填充示例</button> -->
+</view>

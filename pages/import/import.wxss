@@ -1,0 +1,35 @@
+/* pages/import/import.wxss */
+.page {
+  padding: 20rpx;
+  background: #f5f7fa;
+  min-height: 100vh;
+}
+.header .title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 12rpx;
+}
+.paste-area {
+  width: 100%;
+  min-height: 300rpx;
+  padding: 12rpx;
+  border: 1rpx solid #e6e6e6;
+  border-radius: 8rpx;
+  background: #fff;
+}
+.buttons {
+  display: flex;
+  gap: 12rpx;
+  margin-top: 12rpx;
+}
+.preview {
+  margin-top: 12rpx;
+  color: #666;
+}
+.error-sample {
+  margin-top: 8rpx;
+  color: #c33;
+  background: #fff5f5;
+  padding: 8rpx;
+  border-radius: 6rpx;
+}

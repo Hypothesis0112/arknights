@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="section-title">干员图鉴</view>
+
+  <!-- 筛选栏 -->
+  <view class="filter-bar">
+    <picker mode="selector" range="{{rarityArray}}" value="{{filterRarityIndex}}" bindchange="onRarityFilterChange">
+      <view>星级：{{rarityArray[filterRarityIndex]}}</view>
+    </picker>
+    <picker mode="selector" range="{{allClasses}}" value="{{filterClassIndex}}" bindchange="onClassFilterChange">
+      <view>职业：{{allClasses[filterClassIndex]}}</view>
+    </picker>
+  </view>
+
+  <!-- 干员列表 -->
+  <view wx:if="{{!filteredOperators || filteredOperators.length === 0}}" class="empty-tip">
+    暂无匹配干员
+  </view>
+
+  <view class="operator-grid">
+    <view wx:for="{{filteredOperators}}" wx:key="name" class="operator-card {{item.owned ? 'owned' : ''}}">
+      <view class="rarity-tag {{item.rarity === 6 ? 'six' : 'five'}}">{{item.rarity}}★</view>
+      <view class="operator-name">{{item.name}}</view>
+      <view class="operator-class">{{item.class}}</view>
+    </view>
+  </view>
+</view>

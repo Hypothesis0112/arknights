@@ -1,0 +1,57 @@
+<!-- pages/analysis/analysis.wxml -->
+<view class="page-container">
+  <view class="section-title">全局统计</view>
+
+  <view class="stats-grid">
+    <view class="stat-card">
+      <view class="stat-value">{{total}}</view>
+      <view class="stat-label">总抽数</view>
+    </view>
+    <view class="stat-card">
+      <view class="stat-value">{{sixStarCount}}</view>
+      <view class="stat-label">六星数</view>
+    </view>
+    <view class="stat-card">
+      <view class="stat-value">{{fiveStarCount}}</view>
+      <view class="stat-label">五星数</view>
+    </view>
+  </view>
+
+  <view class="rate-section">
+    <view class="rate-item">
+      <text>六星出率：</text>
+      <text class="rate-value">{{sixStarRate}}</text>
+    </view>
+    <view class="rate-item">
+      <text>五星出率：</text>
+      <text class="rate-value">{{fiveStarRate}}</text>
+    </view>
+    <view class="rate-item">
+      <text>歪卡率（六星中非UP）：</text>
+      <text class="rate-value">{{offTargetRate}}</text>
+    </view>
+  </view>
+
+  <view class="section-title">分卡池统计</view>
+
+  <view wx:if="{{poolStats.length === 0}}" style="text-align:center; color:#999; padding:40rpx 0;">
+    暂无抽卡记录，请先在「记录」页添加数据。
+  </view>
+
+  <view wx:else>
+    <view class="pool-row header">
+      <view class="cell">卡池</view>
+      <view class="cell">总抽</view>
+      <view class="cell">六星</view>
+      <view class="cell">六星率</view>
+      <view class="cell">歪率</view>
+    </view>
+    <view wx:for="{{poolStats}}" wx:key="name" class="pool-row">
+      <view class="cell">{{item.name}}</view>
+      <view class="cell">{{item.total}}</view>
+      <view class="cell">{{item.sixCount}}</view>
+      <view class="cell">{{item.sixRate}}</view>
+      <view class="cell">{{item.offRate}}</view>
+    </view>
+  </view>
+</view>
