@@ -1,0 +1,163 @@
+/* 重置所有可能影响tab-bar的样式 */
+.tab-bar {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 140rpx !important;  /* 增加高度以容纳更大的图标 */
+    background: white !important;
+    display: flex !important;
+    z-index: 99999 !important;
+    border-top: 1rpx solid #eee;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* 确保没有其他样式覆盖 */
+  .tab-bar .tab-item {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    padding-top: 8rpx !important;
+  }
+  
+  /* 选中状态的渐变背景 */
+  .tab-bar .tab-item.active::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 10rpx !important;
+    right: 10rpx !important;
+    bottom: 0 !important;
+    background: linear-gradient(to bottom, #e6f7ff 0%, #ffffff 100%) !important;
+    border-radius: 20rpx 20rpx 0 0 !important;  /* 增大圆角 */
+    z-index: 1 !important;
+  }
+  
+  /* 图标样式 - 调大尺寸 */
+  .tab-bar .tab-item .tab-icon {
+    position: relative !important;
+    z-index: 2 !important;
+    width: 80rpx !important;   /* 增大：从50rpx增加到80rpx */
+    height: 80rpx !important;  /* 增大：从50rpx增加到80rpx */
+    margin-bottom: 6rpx !important; /* 调整间距 */
+    display: block !important;
+    
+    /* 为不同tab添加不同的滤镜效果 */
+    filter: brightness(0.9) saturate(1.1);
+    transition: all 0.3s ease; /* 添加过渡动画 */
+  }
+  
+  /* 鼠标悬停效果 */
+  .tab-bar .tab-item .tab-icon:hover {
+    transform: scale(1.05);
+  }
+  
+  /* 记录tab的图标特殊效果 - 强调青绿色角和橙色眼睛 */
+  .tab-bar .tab-item[data-index="0"] .tab-icon {
+    filter: hue-rotate(0deg) brightness(1) saturate(1.2) 
+            drop-shadow(0 2rpx 4rpx rgba(0, 180, 200, 0.3));
+  }
+  
+  /* 分析tab的图标特殊效果 - 强调画笔的白色 */
+  .tab-bar .tab-item[data-index="1"] .tab-icon {
+    filter: hue-rotate(30deg) brightness(1.1) saturate(1.2)
+            drop-shadow(0 2rpx 4rpx rgba(255, 120, 0, 0.3));
+  }
+  
+  /* 图鉴tab的图标特殊效果 - 强调深色身体 */
+  .tab-bar .tab-item[data-index="2"] .tab-icon {
+    filter: hue-rotate(120deg) brightness(0.95) saturate(1.2)
+            drop-shadow(0 2rpx 4rpx rgba(0, 150, 100, 0.3));
+  }
+  
+  /* 导出tab的图标特殊效果 - 强调创可贴的红黄色 */
+  .tab-bar .tab-item[data-index="3"] .tab-icon {
+    filter: hue-rotate(180deg) brightness(1.05) saturate(1.2)
+            drop-shadow(0 2rpx 4rpx rgba(150, 0, 255, 0.3));
+  }
+  
+  /* 选中状态的图标样式 - 更大更醒目 */
+  .tab-bar .tab-item.active .tab-icon {
+    width: 90rpx !important;   /* 选中时更大：从60rpx增加到90rpx */
+    height: 90rpx !important;  /* 选中时更大：从60rpx增加到90rpx */
+    filter: brightness(1.3) saturate(1.4) drop-shadow(0 4rpx 10rpx rgba(0, 195, 255, 0.4));
+    transform: translateY(-6rpx) scale(1.1); /* 更强的上浮效果 */
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* 弹性动画 */
+  }
+  
+  /* 选中状态的特定颜色效果 - 更加突出图片特征 */
+  .tab-bar .tab-item.active[data-index="0"] .tab-icon {
+    filter: hue-rotate(0deg) brightness(1.3) saturate(1.4) 
+            drop-shadow(0 4rpx 12rpx rgba(0, 200, 220, 0.5));
+    /* 强调青绿色角 */
+  }
+  
+  .tab-bar .tab-item.active[data-index="1"] .tab-icon {
+    filter: hue-rotate(30deg) brightness(1.3) saturate(1.4) 
+            drop-shadow(0 4rpx 12rpx rgba(255, 150, 0, 0.5));
+    /* 强调橙色眼睛 */
+  }
+  
+  .tab-bar .tab-item.active[data-index="2"] .tab-icon {
+    filter: hue-rotate(120deg) brightness(1.3) saturate(1.4) 
+            drop-shadow(0 4rpx 12rpx rgba(0, 180, 120, 0.5));
+    /* 强调深色身体轮廓 */
+  }
+  
+  .tab-bar .tab-item.active[data-index="3"] .tab-icon {
+    filter: hue-rotate(180deg) brightness(1.3) saturate(1.4) 
+            drop-shadow(0 4rpx 12rpx rgba(180, 0, 240, 0.5));
+    /* 强调创可贴的红黄色 */
+  }
+  
+  /* 确保文字在最上层 */
+  .tab-bar .tab-item text {
+    position: relative !important;
+    z-index: 2 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+    width: 100% !important;
+    font-size: 28rpx !important;  /* 增大文字 */
+    color: #8a9bb2 !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    margin-top: 0 !important;
+    font-weight: 500 !important;  /* 添加字体权重 */
+  }
+  
+  /* 选中状态的文字样式 */
+  .tab-bar .tab-item.active text {
+    font-size: 32rpx !important;  /* 增大选中文字 */
+    color: #00c3ff !important;
+    font-weight: bold !important;
+    text-shadow: 0 2rpx 4rpx rgba(0, 195, 255, 0.2); /* 文字阴影 */
+  }
+  
+  /* 添加图标动画 */
+  @keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8rpx); }
+  }
+  
+  @keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+  
+  /* 当前选中tab的浮动动画 */
+  .tab-bar .tab-item.active .tab-icon {
+    animation: iconFloat 2s ease-in-out infinite;
+  }
+  
+  /* 点击时的脉冲动画 */
+  .tab-bar .tab-item:active .tab-icon {
+    animation: iconPulse 0.3s ease;
+  }
